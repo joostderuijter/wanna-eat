@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer__text{
+  color: white;
+  font-family: monospace;
+  font-size: 0.8em;
+}

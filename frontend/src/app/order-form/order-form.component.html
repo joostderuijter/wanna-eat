@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="order-form__title">wanna eat?</h1>
+  <div class="order-form">
+    <form id = "userDataForm" name="userData" onsubmit="return callApi()">
+      <label>full name</label><input type="text" name="name"><br>
+      <label>street</label><input type="text" name="street"><br>
+      <label>city</label><input type="text" name="city"><br>
+      <label>house no.</label><input type="text" name="housenumber"><br>
+      <label>Postal code</label><input type="text" name="postalcode"><br>
+      <label>Email</label><input type="text" name="email"><br>
+      <label>Phone number</label><input type="text" name="phonenumber"><br>
+      <label>€</label><input type="text" name="amount"><br>
+      <label>Bank</label><select id="bank">
+      <option value="rabobank">Rabobank</option>
+      <option value="abnamro">ABN AMRO</option>
+      <option value="ing">ING</option>
+    </select><br>
+      <input id="submit-btn" type="submit">
+    </form>
+  </div>
+</div>

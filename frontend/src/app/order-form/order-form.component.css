@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order-form {
+  padding: 50px;
+  background-color: white;
+  border: black solid 2px;
+}
+
+h1 {
+  color:white;
+}
+
