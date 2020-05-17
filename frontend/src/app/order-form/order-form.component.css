@@ -5,12 +5,48 @@
 }
 
 .order-form {
+  display:flex;
   padding: 50px;
+  flex-direction: column;
   background-color: white;
   border: black solid 2px;
+  width: 500px;
+}
+
+.order-form__row {
+  display:flex;
+  justify-content: space-between;
+  margin-top:10px;
+  margin-bottom:10px
+}
+
+.order-form__row__element {
+  display: flex;
+  width: 100%;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.order-form__row__element input {
+  flex-grow: 1;
 }
 
 h1 {
   color:white;
+}
+
+input {
+  border: black 1px solid;
+  margin-left: 10px;
+  width: 10%;
+}
+
+#submit-btn {
+  background: black;
+  font-size:26px;
+  color: white;
+  font-weight: bold;
+  width:130px;
+  padding:10px;
 }
 

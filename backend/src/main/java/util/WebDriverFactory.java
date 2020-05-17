@@ -19,6 +19,6 @@ public class WebDriverFactory {
     }
 
     private static void setChromeDriverPath() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "backend/src/main/resources/chromedriver");
     }
 }
