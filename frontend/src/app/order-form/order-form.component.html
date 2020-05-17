@@ -1,47 +1,50 @@
 <div class="container">
   <h1 class="order-form__title">wanna eat?</h1>
   <div class="order-form">
+    <mat-spinner *ngIf="showSpinner"></mat-spinner>
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)"
+    [ngClass]="showSpinner ? 'show_spinner':''">
     <div class="order-form__row">
       <div class="order-form__row__element">
         <label>full name</label>
-        <input type="text" name="name"><br>
+        <input type="text" formControlName="fullName"><br>
       </div>
     </div>
     <div class="order-form__row">
       <div class="order-form__row__element">
-        <label>street</label><input type="text" name="street"><br>
+        <label>street</label><input type="text" formControlName="street"><br>
       </div>
       <div class="order-form__row__element">
-        <label>house no.</label><input type="text" name="housenumber"><br>
-      </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>city</label><input type="text" name="city"><br>
-      </div>
-      <div class="order-form__row__element">
-        <label>Postal code</label><input type="text" name="postalcode"><br>
+        <label>house no.</label><input type="text" formControlName="houseNumber"><br>
       </div>
     </div>
     <div class="order-form__row">
       <div class="order-form__row__element">
-        <label>Email</label><input type="text" name="email"><br>
+        <label>city</label><input type="text" formControlName="city"><br>
+      </div>
+      <div class="order-form__row__element">
+        <label>postal code</label><input type="text" formControlName="postalCode"><br>
       </div>
     </div>
     <div class="order-form__row">
       <div class="order-form__row__element">
-        <label>Phone number</label><input type="text" name="phonenumber"><br>
+        <label>email</label><input type="text" formControlName="email"><br>
       </div>
     </div>
     <div class="order-form__row">
       <div class="order-form__row__element">
-        <label>how much € do you want to spend?</label><input type="text" name="amount"><br>
+        <label>phone number</label><input type="text" formControlName="phoneNumber"><br>
       </div>
     </div>
     <div class="order-form__row">
       <div class="order-form__row__element">
-      <label>Bank</label>
-      <select id="bank">
+        <label>how much € do you want to spend?</label><input type="text" formControlName="amountToSpend"><br>
+      </div>
+    </div>
+    <div class="order-form__row">
+      <div class="order-form__row__element">
+      <label>bank</label>
+      <select id="bank" formControlName="bank">
         <option value="rabobank">Rabobank</option>
         <option value="abnamro">ABN AMRO</option>
         <option value="ing">ING</option>
@@ -49,5 +52,10 @@
       </div>
       <input id="submit-btn" type="submit" value = "order">
     </div>
+  </form>
+    <div *ngIf="showError" class="error">
+      Oops, something went wrong..
+    </div>
   </div>
 </div>
+

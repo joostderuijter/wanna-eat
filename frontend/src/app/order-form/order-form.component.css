@@ -2,15 +2,21 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 100px;
 }
 
 .order-form {
+  z-index: 1;
   display:flex;
   padding: 50px;
   flex-direction: column;
   background-color: white;
   border: black solid 2px;
   width: 500px;
+}
+
+.order-form__title {
+  font-size:40px;
 }
 
 .order-form__row {
@@ -41,6 +47,10 @@ input {
   width: 10%;
 }
 
+select {
+  margin-left: 10px;
+}
+
 #submit-btn {
   background: black;
   font-size:26px;
@@ -50,3 +60,14 @@ input {
   padding:10px;
 }
 
+.show_spinner {
+  opacity:25%;
+}
+
+.mat-spinner {
+  position: absolute;
+}
+
+.error {
+  color: red;
+}
