@@ -5,10 +5,9 @@ import { HttpClient } from '@angular/common/http';
 export class OrderService {
   constructor(private http: HttpClient) { }
 
-  readonly ROOT_URL = 'localhost:8080';
+  readonly ROOT_URL = 'http://localhost:4200';
 
   postOrder() {
     return this.http.get(this.ROOT_URL + '/api/order');
   }
 }
-

@@ -6,6 +6,7 @@ import model.Item;
 import model.Order;
 import model.Restaurant;
 import model.State;
+import model.rest.OrderResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
@@ -31,8 +32,9 @@ public class OrderService {
         this.webDriver = WebDriverFactory.createChromeDriver();
     }
 
-    public String test() {
-        return "test";
+    public OrderResponse test() {
+        timeOut(5000);
+        return new OrderResponse("test");
     }
 
     public void orderPlacer() throws NoRestaurantsFoundException, NoItemsAddedException {

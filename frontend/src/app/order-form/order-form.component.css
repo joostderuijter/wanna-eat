@@ -13,6 +13,7 @@
   background-color: white;
   border: black solid 2px;
   width: 500px;
+  position: relative;
 }
 
 .order-form__title {
@@ -60,13 +61,38 @@ select {
   padding:10px;
 }
 
-.show_spinner {
-  opacity:25%;
+.overlay {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background-color: white;
 }
 
-.mat-spinner {
+.overlay__spinner {
+  display: flex;
+  justify-content: center;
   position: absolute;
 }
+
+.overlay__success {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.overlay__success__title {
+  font-size: 30px;
+}
+
+.overlay__success__content {
+  font-size: 20px;
+}
+
+.overlay__success__reset button {
+
+}
+
 
 .error {
   color: red;

@@ -1,5 +1,6 @@
 package app;
 
+import model.rest.OrderResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    public String placeOrder() {
+    public OrderResponse placeOrder() {
         return orderService.test();
     }
 

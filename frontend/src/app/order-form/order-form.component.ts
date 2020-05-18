@@ -11,6 +11,7 @@ export class OrderFormComponent implements OnInit {
 
   orderForm;
   showSpinner = false;
+  orderPlaced = false;
   showError = false;
 
   constructor(
@@ -36,13 +37,19 @@ export class OrderFormComponent implements OnInit {
     });
   }
 
+  resetForm() {
+    this.orderPlaced = false;
+    this.orderForm.enable();
+  }
+
   onSubmit(orderData) {
     this.showSpinner = true;
     this.orderForm.disable();
     console.log(orderData);
     this.orderService.postOrder().subscribe(result => {
+      console.log(result);
       this.showSpinner = false;
-      this.orderForm.enable();
+      this.orderPlaced = true;
     },
       error => {
       console.log(error);
