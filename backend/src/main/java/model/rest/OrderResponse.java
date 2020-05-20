@@ -1,13 +1,13 @@
 package model.rest;
 
 public class OrderResponse {
-    private final String test;
+    private final String orderUrl;
 
-    public OrderResponse(String test) {
-        this.test = test;
+    public OrderResponse(String orderUrl) {
+        this.orderUrl = orderUrl;
     }
 
-    public String getTest() {
-        return test;
+    public String getOrderUrl() {
+        return orderUrl;
     }
 }

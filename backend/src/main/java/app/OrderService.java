@@ -32,24 +32,30 @@ public class OrderService {
         this.webDriver = WebDriverFactory.createChromeDriver();
     }
 
-    public OrderResponse test() {
-        timeOut(5000);
-        return new OrderResponse("test");
+    public String test() {
+        return "http://google.com";
+/*        timeOut(5000);
+        try {
+            return new OrderResponse(placeOrder());
+        } catch(Exception e) {
+            System.out.println("ups");
+        }
+        return null;*/
     }
 
-    public void orderPlacer() throws NoRestaurantsFoundException, NoItemsAddedException {
+    public String placeOrder() throws NoRestaurantsFoundException, NoItemsAddedException {
 
         getState().setCustomer(Suppliers.generateTestCustomer().get());
         startSeleniumSession();
         fillInPostalCode();
-        clearCookieBanner();
+        //clearCookieBanner();
         clickRandomRestaurant();
         generateRandomOrder();
         //fillInAddressPopup();
         clickItemsFromOrder();
         //retryFailedItemClicks();
         clickCartOrderButton();
-        fillInCustomerInformation();
+        return fillInCustomerInformation();
     }
 
     private void startSeleniumSession() {
@@ -155,7 +161,7 @@ public class OrderService {
         getWebDriver().findElement(By.className(Constants.WEB_ELEMENT_BY_CLASS_NAME_CART_ORDER_BUTTON)).click();
     }
 
-    private void fillInCustomerInformation() {
+    private String fillInCustomerInformation() {
         timeOut(2000);
         getWebDriver().findElement(By.id(Constants.WEB_ELEMENT_BY_ID_ORDER_SUBMIT_FORM_ADDRESS_STREETNAME)).clear();
         getWebDriver().findElement(By.id(Constants.WEB_ELEMENT_BY_ID_ORDER_SUBMIT_FORM_ADDRESS_STREETNAME))
@@ -181,7 +187,7 @@ public class OrderService {
         bankOptionsDropDown.selectByVisibleText(getState().getCustomer().getBank().getBankName());
 
         getWebDriver().findElement(By.className(Constants.WEB_ELEMENT_BY_CLASS_NAME_ORDER_SUBMIT_FORM_SUBMIT_BUTTON)).click();
-        System.out.println(getWebDriver().getCurrentUrl());
+        return getWebDriver().getCurrentUrl();
     }
 
     private void addItemToCart(Item item) throws ElementClickInterceptedException {

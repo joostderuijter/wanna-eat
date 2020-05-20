@@ -6,13 +6,13 @@
     </div>
     <div *ngIf="orderPlaced" class="overlay overlay__success">
       <div class="overlay__success__title">
-        tada 🎉
+        🎉 success 🎉
       </div>
       <div class="overlay__success__content">
-        Use the following url to pay for your order: ____
+        Use the following url to pay for your order: {{successUrl}}
       </div>
       <div class="overlay__success__reset">
-        <button (click)="resetForm()">Generate another order</button>
+        <button (click)="resetForm()" id="btn">generate another order</button>
       </div>
     </div>
   <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)"
@@ -63,7 +63,7 @@
         <option value="ing">ING</option>
       </select>
       </div>
-      <input id="submit-btn" type="submit" value = "order">
+      <button type="submit" value = "order">order</button>
     </div>
   </form>
     <div *ngIf="showError" class="error">

@@ -13,6 +13,7 @@ export class OrderFormComponent implements OnInit {
   showSpinner = false;
   orderPlaced = false;
   showError = false;
+  successUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,8 +47,9 @@ export class OrderFormComponent implements OnInit {
     this.showSpinner = true;
     this.orderForm.disable();
     console.log(orderData);
-    this.orderService.postOrder().subscribe(result => {
+    this.orderService.postOrder(orderData).subscribe(result => {
       console.log(result);
+      this.successUrl = result.orderUrl;
       this.showSpinner = false;
       this.orderPlaced = true;
     },

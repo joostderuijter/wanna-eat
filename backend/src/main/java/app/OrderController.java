@@ -17,7 +17,7 @@ public class OrderController {
 
     @GetMapping("/order")
     public OrderResponse placeOrder() {
-        return orderService.test();
+        return new OrderResponse(orderService.test());
     }
 
 }
