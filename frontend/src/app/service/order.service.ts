@@ -11,6 +11,6 @@ export class OrderService {
   readonly ROOT_URL = 'http://localhost:4200';
 
   postOrder(order: Order): Observable<OrderResponse> {
-    return this.http.get<OrderResponse>(this.ROOT_URL + '/api/order');
+    return this.http.get<OrderResponse>(this.ROOT_URL + '/api/order', {params: order.getAsHttpParams()});
   }
 }

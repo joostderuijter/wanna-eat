@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {OrderService} from '../service/order.service';
+import {Order} from '../model/order';
 
 @Component({
   selector: 'app-order-form',
@@ -46,15 +47,12 @@ export class OrderFormComponent implements OnInit {
   onSubmit(orderData) {
     this.showSpinner = true;
     this.orderForm.disable();
-    console.log(orderData);
-    this.orderService.postOrder(orderData).subscribe(result => {
-      console.log(result);
+    this.orderService.postOrder(new Order(orderData)).subscribe(result => {
       this.successUrl = result.orderUrl;
       this.showSpinner = false;
       this.orderPlaced = true;
     },
       error => {
-      console.log(error);
       this.showSpinner = false;
       this.orderForm.enable();
       this.showError = true;

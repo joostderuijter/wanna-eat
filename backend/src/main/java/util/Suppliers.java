@@ -23,14 +23,12 @@ public class Suppliers {
         Address address = new Address();
         address.setNumber("");
         address.setPostalCode("");
-        address.setResidence("");
+        address.setCity("");
         address.setStreet("");
         return () -> address;
     }
 
     private static Supplier<Wallet> generateTestWallet() {
-        Wallet wallet = new Wallet();
-        wallet.setAmountOfMoney(60);
-        return () -> wallet;
+        return () -> new Wallet(60);
     }
 }
