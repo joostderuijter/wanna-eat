@@ -2,10 +2,7 @@ package app;
 
 import exception.NoItemsAddedException;
 import exception.NoRestaurantsFoundException;
-import model.Item;
-import model.Order;
-import model.Restaurant;
-import model.State;
+import model.*;
 import model.rest.OrderResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -32,20 +29,8 @@ public class OrderService {
         this.webDriver = WebDriverFactory.createChromeDriver();
     }
 
-    public String test() {
-        return "http://google.com";
-/*        timeOut(5000);
-        try {
-            return new OrderResponse(placeOrder());
-        } catch(Exception e) {
-            System.out.println("ups");
-        }
-        return null;*/
-    }
-
-    public String placeOrder() throws NoRestaurantsFoundException, NoItemsAddedException {
-
-        getState().setCustomer(Suppliers.generateTestCustomer().get());
+    public String placeOrderForCustomer(Customer customer) throws NoRestaurantsFoundException, NoItemsAddedException {
+        getState().setCustomer(customer);
         startSeleniumSession();
         fillInPostalCode();
         //clearCookieBanner();

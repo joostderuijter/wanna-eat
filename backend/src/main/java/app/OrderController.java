@@ -20,7 +20,11 @@ public class OrderController {
 
     @GetMapping("/order")
     public OrderResponse placeOrder(OrderRequest request) {
-        State s = OrderMapper.mapOrderToState(request);
-        return new OrderResponse(orderService.test());
+        try {
+            return new OrderResponse(orderService.placeOrderForCustomer(OrderMapper.mapOrderRequestToCustomer(request)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new OrderResponse("");
     }
 }

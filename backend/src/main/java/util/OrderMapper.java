@@ -4,8 +4,7 @@ import model.*;
 
 public class OrderMapper {
 
-    public static State mapOrderToState(OrderRequest orderRequest) {
-        State state = new State();
+    public static Customer mapOrderRequestToCustomer(OrderRequest orderRequest) {
         Customer customer = new Customer();
         customer.setName(orderRequest.getFullName());
 
@@ -22,10 +21,9 @@ public class OrderMapper {
         //TODO: make amount to spend null safe
         customer.setWallet(new Wallet(Double.parseDouble(orderRequest.getAmountToSpend())));
 
-        Bank bank = Bank.valueOf(orderRequest.getBank());
+        //TODO: to uppercase is a quick fix for something that should be fixed in the frontend
+        Bank bank = Bank.valueOf(orderRequest.getBank().toUpperCase());
         customer.setBank(bank);
-
-        state.setCustomer(customer);
-        return state;
+        return customer;
     }
 }
