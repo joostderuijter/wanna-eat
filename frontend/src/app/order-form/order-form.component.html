@@ -9,66 +9,77 @@
         🎉 success 🎉
       </div>
       <div class="overlay__success__content">
-        Use the following url to pay for your order: {{successUrl}}
+        Use the following url to pay for your order: {{ successUrl }}
       </div>
       <div class="overlay__success__reset">
         <button (click)="resetForm()" id="btn">generate another order</button>
       </div>
     </div>
-  <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)"
-    [ngClass]="showSpinner ? 'show_spinner':''">
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>full name</label>
-        <input type="text" formControlName="fullName"><br>
+    <form
+      [formGroup]="orderForm"
+      (ngSubmit)="onSubmit(orderForm.value)"
+      [ngClass]="showSpinner ? 'show_spinner' : ''"
+    >
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>full name</label>
+          <input type="text" formControlName="fullName" /><br />
+        </div>
       </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>street</label><input type="text" formControlName="street"><br>
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>street</label
+          ><input type="text" formControlName="street" /><br />
+        </div>
+        <div class="order-form__row__element">
+          <label>house no.</label
+          ><input type="text" formControlName="houseNumber" /><br />
+        </div>
       </div>
-      <div class="order-form__row__element">
-        <label>house no.</label><input type="text" formControlName="houseNumber"><br>
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>city</label><input type="text" formControlName="city" /><br />
+        </div>
+        <div class="order-form__row__element">
+          <label>postal code</label
+          ><input type="text" formControlName="postalCode" /><br />
+        </div>
       </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>city</label><input type="text" formControlName="city"><br>
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>email</label
+          ><input type="text" formControlName="email" /><br />
+        </div>
       </div>
-      <div class="order-form__row__element">
-        <label>postal code</label><input type="text" formControlName="postalCode"><br>
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>phone number</label
+          ><input type="text" formControlName="phoneNumber" /><br />
+        </div>
       </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>email</label><input type="text" formControlName="email"><br>
+      <div class="order-form__row">
+        <div class="order-form__row__element">
+          <label>how much € do you want to spend?</label
+          ><input type="text" formControlName="amountToSpend" /><br />
+        </div>
       </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>phone number</label><input type="text" formControlName="phoneNumber"><br>
+      <div class="order-form__row">
+        <!-- <div class="order-form__row__element">
+          <label>bank</label>
+          <select id="bank" formControlName="bank"
+            >:w
+            <option value="Rabobank">Rabobank</option>
+            <option value="ABN_AMRO">ABN AMRO</option>
+            <option value="ING">ING</option>
+          </select>
+        </div>-->
+        <button type="submit" [disabled]="!orderForm.valid" value="order">
+          order
+        </button>
       </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-        <label>how much € do you want to spend?</label><input type="text" formControlName="amountToSpend"><br>
-      </div>
-    </div>
-    <div class="order-form__row">
-      <div class="order-form__row__element">
-      <label>bank</label>
-      <select id="bank" formControlName="bank">
-        <option value="Rabobank">Rabobank</option>
-        <option value="ABN_AMRO">ABN AMRO</option>
-        <option value="ING">ING</option>
-      </select>
-      </div>
-      <button type="submit" value = "order">order</button>
-    </div>
-  </form>
+    </form>
     <div *ngIf="showError" class="error">
       Oops, something went wrong..
     </div>
   </div>
 </div>
-

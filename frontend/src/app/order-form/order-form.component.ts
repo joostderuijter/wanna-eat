@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OrderService} from '../service/order.service';
 import {Order} from '../model/order';
 
@@ -23,15 +23,15 @@ export class OrderFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderForm = this.formBuilder.group({
-      fullName: '',
-      street: '',
-      houseNumber: '',
-      city: '',
-      postalCode: '',
-      email: '',
-      phoneNumber: '',
-      amountToSpend: '',
-      bank: ''
+      fullName: ['', Validators.required],
+      street: ['', Validators.required],
+      houseNumber: ['', Validators.required],
+      city: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      email: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      amountToSpend: ['', Validators.required],
+      bank: ['', Validators.required]
     });
 
     this.orderForm.valueChanges.subscribe(val => {

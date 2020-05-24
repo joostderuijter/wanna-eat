@@ -7,35 +7,36 @@
 
 .order-form {
   z-index: 1;
-  display:flex;
+  display: flex;
   padding: 50px;
   flex-direction: column;
   background-color: white;
   border: black solid 2px;
   width: 500px;
   position: relative;
-  -webkit-box-shadow: 5px 5px 7px -2px rgba(56,56,56,1);
-  -moz-box-shadow: 5px 5px 7px -2px rgba(56,56,56,1);
-  box-shadow: 5px 5px 7px -2px rgba(56,56,56,1);
-  margin-bottom:50px;
+  -webkit-box-shadow: 5px 5px 7px -2px rgba(56, 56, 56, 1);
+  -moz-box-shadow: 5px 5px 7px -2px rgba(56, 56, 56, 1);
+  box-shadow: 5px 5px 7px -2px rgba(56, 56, 56, 1);
+  margin-bottom: 50px;
+  overflow-wrap: break-word;
 }
 
 .order-form__title {
-  font-size:40px;
+  font-size: 40px;
 }
 
 .order-form__row {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  margin-top:10px;
-  margin-bottom:10px
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .order-form__row__element {
   display: flex;
   width: 100%;
-  margin-left:10px;
-  margin-right:10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .order-form__row__element input {
@@ -43,7 +44,7 @@
 }
 
 h1 {
-  color:white;
+  color: white;
 }
 
 input {
@@ -58,18 +59,25 @@ select {
 
 button {
   background: black;
-  font-size:26px;
+  font-size: 26px;
   color: white;
   font-weight: bold;
   padding: 10px 20px;
   width: auto;
 }
 
+button:disabled {
+  background: lightgray;
+}
+
 .overlay {
   display: flex;
   position: absolute;
   align-items: center;
-  left: 0; top: 0; right: 0; bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-color: white;
 }
 
@@ -96,9 +104,7 @@ button {
 }
 
 .overlay__success__reset button {
-
 }
-
 
 .error {
   color: red;

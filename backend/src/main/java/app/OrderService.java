@@ -26,9 +26,11 @@ public class OrderService {
     public OrderService() {
         this.state = new State();
         this.functions = new Functions();
-        this.webDriver = WebDriverFactory.createChromeDriver();
+        this.webDriver = WebDriverFactory.createHeadlessChromeDriver();
     }
 
+    //TODO: add percentage to show user how far the order is?
+    //TODO: cancel button?
     public String placeOrderForCustomer(Customer customer) throws NoRestaurantsFoundException, NoItemsAddedException {
         getState().setCustomer(customer);
         startSeleniumSession();
